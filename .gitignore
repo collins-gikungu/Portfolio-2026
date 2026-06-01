@@ -1,0 +1,8 @@
+node_modules
+jsconfig.json
+package-lock.json
+package.json
+postcss.config.js
+tailwind.config.js
+.vscode
+public
