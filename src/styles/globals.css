@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Glowy background animation */
+body {
+  background: linear-gradient(-45deg, #f3f4f6, #e5e7eb, #d1d5db, #e5e7eb);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.dark body {
+  background: linear-gradient(-45deg, #111827, #1f2937, #111827, #1e40af);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Particle animation */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glow effects */
+.glow {
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.glow-hover:hover {
+  filter: drop-shadow(0 0 15px currentColor);
+}
+
+/* Subtle floating animation */
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.subtle-float {
+  animation: subtleFloat 6s ease-in-out infinite;
+}
+
+/* Background grid animation */
+.bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridScroll 20s linear infinite;
+}
+
+@keyframes gridScroll {
+  from { background-position: 0 0; }
+  to { background-position: 40px 40px; }
+}
+
+.dark .bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+
+/* Glow effects */
+.glow-element {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.glow-element:hover {
+  filter: drop-shadow(0 0 10px currentColor);
+  transform: translateY(-2px);
+}
+
+/* Text typing animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 3px solid;
+  white-space: nowrap;
+  animation: 
+    typing 3.5s steps(40, end) infinite,
+    blink-caret 0.75s step-end infinite;
+}
