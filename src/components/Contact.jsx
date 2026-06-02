@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Camera, CodeXml, Mail, MapPin, Phone, UserRoundSearch } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Contact = ({ darkMode }) => {
@@ -68,13 +68,13 @@ const Contact = ({ darkMode }) => {
 
             <div className="flex space-x-4 mt-8">
               <a href="https://github.com/collinsgikungu" className={`p-3 rounded-full ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} shadow-lg transition-colors duration-200`}>
-                <Github className="w-6 h-6" />
+                <CodeXml className="w-6 h-6" />
               </a>
               <a href="https://www.linkedin.com/in/collins-gikungu-" className={`p-3 rounded-full ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} shadow-lg transition-colors duration-200`}>
-                <Linkedin className="w-6 h-6" />
+                <UserRoundSearch className="w-6 h-6" />
               </a>
               <a href="https://www.instagram.com/k.i.n.g_f.u.r.y/" className={`p-3 rounded-full ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} shadow-lg transition-colors duration-200`}>
-                <Instagram className="w-6 h-6" />
+                <Camera className="w-6 h-6" />
               </a>  
             </div>
           </motion.div>

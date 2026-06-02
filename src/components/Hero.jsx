@@ -4,17 +4,18 @@ import {
   ArrowRight,
   CheckCircle2,
   Code2,
+  CodeXml,
   Download,
-  Github,
-  Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
   Sparkles,
   Terminal,
+  UserRoundSearch,
 } from 'lucide-react';
 import profileImage from '../assets/images/collins-profile.jpg';
+import Header from './Header';
 import Particles from './Particles';
 
 const rotatingLines = [
@@ -27,13 +28,20 @@ const rotatingLines = [
 const techStack = ['React', 'Node', 'Web3', 'Tailwind', 'APIs'];
 
 const socialLinks = [
-  { icon: Github, label: 'GitHub', url: 'https://github.com/collinsgikungu' },
-  { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/collins-gikungu-' },
+  { icon: CodeXml, label: 'GitHub', url: 'https://github.com/collinsgikungu' },
+  { icon: UserRoundSearch, label: 'LinkedIn', url: 'https://www.linkedin.com/in/collins-gikungu-' },
   { icon: Mail, label: 'Email', url: 'mailto:gikungutech2002@gmail.com' },
   { icon: Phone, label: 'Call', url: 'tel:0755697418' },
 ];
 
-const Hero = ({ scrollToSection }) => {
+const Hero = ({
+  scrollToSection,
+  darkMode,
+  toggleTheme,
+  mobileMenuOpen,
+  setMobileMenuOpen,
+  activeSection,
+}) => {
   const [lineIndex, setLineIndex] = useState(0);
 
   useEffect(() => {
@@ -54,13 +62,22 @@ const Hero = ({ scrollToSection }) => {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden bg-[#05070d] px-4 pb-24 pt-24 text-white sm:px-6 lg:px-8"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#05070d] px-4 pb-24 pt-36 text-white sm:px-6 sm:pt-40 lg:px-8"
     >
       <Particles />
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(124,58,237,0.52),transparent_28%),radial-gradient(circle_at_88%_30%,rgba(20,184,166,0.28),transparent_24%),linear-gradient(135deg,rgba(2,6,23,0.5),rgba(0,0,0,0.95)_55%)]" />
       <div className="absolute left-0 top-24 h-56 w-full -skew-y-12 bg-gradient-to-r from-violet-700/70 via-fuchsia-500/30 to-transparent blur-2xl" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:72px_72px] opacity-20" />
+
+      <Header
+        darkMode={darkMode}
+        toggleTheme={toggleTheme}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
+      />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
         <motion.div

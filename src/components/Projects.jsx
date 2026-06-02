@@ -1,4 +1,4 @@
-import { Github, ExternalLink } from 'lucide-react';
+import { CodeXml, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Projects = ({ darkMode }) => {
@@ -98,7 +98,7 @@ const Projects = ({ darkMode }) => {
               
               <div className="flex space-x-4">
                 <a href={project.github} className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-200">
-                  <Github className="w-4 h-4" />
+                  <CodeXml className="w-4 h-4" />
                   <span>Code</span>
                 </a>
                 <a href={project.demo} className="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors duration-200">

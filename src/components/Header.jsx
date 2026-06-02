@@ -1,104 +1,151 @@
-import { 
-  Sun,
-  Moon,
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Briefcase,
+  Code2,
+  FolderGit2,
+  Home,
+  Mail,
   Menu,
-  X
+  Moon,
+  Sparkles,
+  Sun,
+  User,
+  X,
 } from 'lucide-react';
 
-const Header = ({ 
-  darkMode, 
-  toggleTheme, 
-  mobileMenuOpen, 
-  setMobileMenuOpen, 
-  activeSection, 
-  scrollToSection 
+const navLinks = [
+  { id: 'home', label: 'Home', icon: Home },
+  { id: 'about', label: 'About', icon: User },
+  { id: 'skills', label: 'Skills', icon: Sparkles },
+  { id: 'projects', label: 'Projects', icon: FolderGit2 },
+  { id: 'experience', label: 'Experience', icon: Briefcase },
+  { id: 'contact', label: 'Contact', icon: Mail },
+];
+
+const Header = ({
+  darkMode,
+  toggleTheme,
+  mobileMenuOpen,
+  setMobileMenuOpen,
+  activeSection,
+  scrollToSection,
 }) => {
-  const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'contact', label: 'Contact' }
-  ];
+  const handleNavClick = (sectionId) => {
+    scrollToSection(sectionId);
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 
-        ${darkMode ? 'bg-gray-900/95 text-white' : 'bg-white/95 text-gray-900'} 
-        backdrop-blur-md border-b 
-        ${darkMode ? 'border-gray-800' : 'border-gray-200'} 
-        shadow-sm`}
+    <motion.header
+      initial={{ opacity: 0, y: -18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.65, delay: 0.15 }}
+      className="absolute inset-x-0 top-5 z-30 px-4 sm:px-6 lg:px-8"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <div className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Collins Gikungu
-          </div>
+      <div className="mx-auto max-w-7xl">
+        <div className="relative rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-3 text-white shadow-2xl shadow-black/25 backdrop-blur-2xl sm:px-5">
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-300/10 via-violet-400/10 to-transparent" />
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map(link => (
+          <div className="relative flex items-center justify-between gap-4">
+            <button
+              onClick={() => handleNavClick('home')}
+              className="group flex min-w-0 items-center gap-3"
+              aria-label="Go to home"
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-300/10 text-cyan-200 shadow-lg shadow-cyan-500/10 transition-colors group-hover:bg-cyan-300/20">
+                <Code2 className="h-5 w-5" />
+              </span>
+              <span className="hidden min-w-0 sm:block">
+                <span className="block text-left text-lg font-black leading-tight text-white">
+                  Collins Gikungu
+                </span>
+                <span className="block text-left text-xs font-semibold uppercase tracking-wider text-cyan-200/80">
+                  Portfolio
+                </span>
+              </span>
+            </button>
+
+            <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1 lg:flex">
+              {navLinks.map(({ id, label, icon: Icon }) => {
+                const isActive = activeSection === id;
+
+                return (
+                  <button
+                    key={id}
+                    onClick={() => handleNavClick(id)}
+                    className={`relative inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-colors ${
+                      isActive ? 'text-slate-950' : 'text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeHeroNav"
+                        className="absolute inset-0 rounded-full bg-cyan-300"
+                        transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                      />
+                    )}
+                    <Icon className="relative h-4 w-4" />
+                    <span className="relative">{label}</span>
+                  </button>
+                );
+              })}
+            </nav>
+
+            <div className="relative flex items-center gap-2">
               <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className={`transition-colors duration-200 hover:text-emerald-400 capitalize
-                  ${activeSection === link.id ? 'text-emerald-400' : ''}`}
+                onClick={toggleTheme}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/10 text-cyan-100 transition-colors hover:bg-white/15"
+                aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
-                {link.label}
+                {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </button>
-            ))}
-            <button
-              onClick={toggleTheme}
-              className={`p-2 rounded-full transition-colors duration-200 
-                ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'}`}
-              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-          </div>
 
-          {/* Mobile Buttons (Theme + Menu Toggle) */}
-          <div className="md:hidden flex items-center space-x-2">
-            <button
-              onClick={toggleTheme}
-              className={`p-2 rounded-full transition-colors duration-200 
-                ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'}`}
-              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2"
-              aria-expanded={mobileMenuOpen}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu Dropdown */}
-        {mobileMenuOpen && (
-          <div className="md:hidden pb-4 pt-2 border-t border-gray-800 dark:border-gray-700">
-            <div className="flex flex-col space-y-4 mt-4 px-4">
-              {navLinks.map(link => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className={`text-left py-2 capitalize transition-colors duration-200 hover:text-emerald-400 
-                    ${activeSection === link.id ? 'text-emerald-400 font-medium' : ''}`}
-                >
-                  {link.label}
-                </button>
-              ))}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/10 text-white transition-colors hover:bg-white/15 lg:hidden"
+                aria-expanded={mobileMenuOpen}
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
             </div>
           </div>
-        )}
+
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10, height: 0 }}
+                animate={{ opacity: 1, y: 0, height: 'auto' }}
+                exit={{ opacity: 0, y: -10, height: 0 }}
+                transition={{ duration: 0.25 }}
+                className="relative overflow-hidden lg:hidden"
+              >
+                <div className="mt-4 grid gap-2 border-t border-white/10 pt-4 sm:grid-cols-2">
+                  {navLinks.map(({ id, label, icon: Icon }) => {
+                    const isActive = activeSection === id;
+
+                    return (
+                      <button
+                        key={id}
+                        onClick={() => handleNavClick(id)}
+                        className={`flex items-center gap-3 rounded-xl px-4 py-3 text-left text-sm font-bold transition-colors ${
+                          isActive
+                            ? 'bg-cyan-300 text-slate-950'
+                            : 'bg-white/5 text-slate-200 hover:bg-white/10 hover:text-white'
+                        }`}
+                      >
+                        <Icon className="h-4 w-4" />
+                        {label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

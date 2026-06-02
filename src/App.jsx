@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -8,7 +7,7 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Preloader from './components/Preloader'; // ✅ Import Preloader
+import Preloader from './components/Preloader';
 import './styles/globals.css';
 import './styles/animations.css';
 
@@ -16,13 +15,12 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [showPreloader, setShowPreloader] = useState(true); // ✅ Preloader state
+  const [showPreloader, setShowPreloader] = useState(true);
 
-  // Simulate loading completion (e.g., assets, fonts, etc.)
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPreloader(false);
-    }, 2000); // Adjust duration as needed (2s)
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -59,10 +57,8 @@ const App = () => {
 
   return (
     <>
-      {/* ✅ Render Preloader only while showPreloader is true */}
       {showPreloader && <Preloader />}
 
-      {/* Main App Content */}
       <AnimatePresence mode="wait">
         <motion.div
           key={darkMode ? 'dark' : 'light'}
@@ -74,15 +70,14 @@ const App = () => {
             darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
           }`}
         >
-          <Header 
-            darkMode={darkMode} 
+          <Hero
+            scrollToSection={scrollToSection}
+            darkMode={darkMode}
             toggleTheme={toggleTheme}
             mobileMenuOpen={mobileMenuOpen}
             setMobileMenuOpen={setMobileMenuOpen}
             activeSection={activeSection}
-            scrollToSection={scrollToSection}
           />
-          <Hero scrollToSection={scrollToSection} darkMode={darkMode} />
           <About darkMode={darkMode} />
           <Skills darkMode={darkMode} />
           <Projects darkMode={darkMode} />
