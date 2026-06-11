@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { Suspense, lazy, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,6 +10,8 @@ import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import './styles/globals.css';
 import './styles/animations.css';
+
+const ThreeBackground = lazy(() => import('./components/ThreeBackground'));
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -66,10 +68,11 @@ const App = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className={`min-h-screen transition-colors duration-300 ${
-            darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
-          }`}
+          className="min-h-screen bg-[#05070d] text-white transition-colors duration-300"
         >
+          <Suspense fallback={null}>
+            <ThreeBackground />
+          </Suspense>
           <Hero
             scrollToSection={scrollToSection}
             darkMode={darkMode}
