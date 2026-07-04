@@ -1,41 +1,48 @@
-import { Heart } from 'lucide-react';
+import { ArrowUp, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const Footer = ({ darkMode, scrollToSection }) => {
+const Footer = ({ scrollToSection }) => {
   return (
-    <footer className={`py-8 ${darkMode ? 'bg-gray-900 border-t border-gray-800' : 'bg-white border-t border-gray-200'}`}>
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.div
+    <footer className="relative z-10 border-t border-white/10 bg-[#05070d]/95 px-4 py-8 text-white sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-5 rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl md:flex-row md:items-center md:justify-between">
+        <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center"
+          className="text-sm font-semibold text-slate-400"
         >
-          <div className="text-center md:text-left mb-4 md:mb-0">
-            <p className="text-gray-600 dark:text-gray-400">
-              © 2026 Collins Gikungu. All rights reserved.
-            </p>
-          </div>
-          
-          <div className="flex items-center space-x-6 mb-4 md:mb-0">
-            <button onClick={() => scrollToSection('home')} className="text-gray-600 dark:text-gray-400 hover:text-emerald-400 transition-colors duration-200">
-              Home
+          © 2026 Collins Gikungu. Built with care, motion, and modern web tools.
+        </motion.p>
+
+        <div className="flex flex-wrap items-center gap-3">
+          {[
+            ['Home', 'home'],
+            ['Projects', 'projects'],
+            ['Contact', 'contact'],
+          ].map(([label, id]) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-slate-300 transition-colors hover:bg-white/10 hover:text-cyan-100"
+            >
+              {label}
             </button>
-            <button onClick={() => scrollToSection('projects')} className="text-gray-600 dark:text-gray-400 hover:text-emerald-400 transition-colors duration-200">
-              Projects
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-600 dark:text-gray-400 hover:text-emerald-400 transition-colors duration-200">
-              Contact
-            </button>
-          </div>
-          
-          <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-red-500 fill-current" />
-            <span>by Collins Gikungu</span>
-          </div>
-        </motion.div>
+          ))}
+          <button
+            onClick={() => scrollToSection('home')}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cyan-300 text-slate-950 transition-colors hover:bg-cyan-200"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="h-4 w-4" />
+          </button>
+        </div>
+
+        <div className="flex items-center gap-2 text-sm font-semibold text-slate-400">
+          <span>Made with</span>
+          <Heart className="h-4 w-4 fill-red-500 text-red-500" />
+          <span>by Collins</span>
+        </div>
       </div>
     </footer>
   );
