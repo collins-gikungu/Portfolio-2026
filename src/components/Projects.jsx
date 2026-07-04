@@ -4,6 +4,16 @@ import SectionHeading from './SectionHeading';
 
 const projects = [
   {
+    title: 'Spin Cycle Tracker App',
+    description: 'Mobile-first React Native app that keeps records of my exercise and cardio sessions with Workout logging, analytics, dashboard metrics and API integrations.',
+    tech: ['React', 'Node.js + Express', 'PostgreSQL', 'JWT'],
+    status: 'Completed',
+    type: 'Full Stack',
+    github: 'https://github.com/collins-gikungu/spin-tracker-app',
+    demo: 'https://spinbiketracker.netlify.app/',
+    accent: 'from-red-300 to-rose-500',
+  },
+  {
     title: 'Shift & Attendance Management System',
     description: 'Hospital-themed full-stack app with JWT auth, shift scheduling, attendance logic, and payroll-ready workflows.',
     tech: ['React', 'Node.js', 'PostgreSQL', 'JWT'],
@@ -43,16 +53,7 @@ const projects = [
     demo: '#',
     accent: 'from-amber-200 to-violet-400',
   },
-  {
-    title: 'Spin Cycle Tracker App',
-    description: 'Mobile-first React Native app that keeps records of my exercise and cardio sessions with Workout logging, analytics, dashboard metrics and API integrations.',
-    tech: ['React', 'Node.js + Express', 'PostgreSQL', 'JWT'],
-    status: 'Completed',
-    type: 'Full Stack',
-    github: 'https://github.com/collins-gikungu/spin-tracker-app',
-    demo: '#',
-    accent: 'from-red-300 to-rose-500',
-  },
+  
 ];
 
 const Projects = () => {
