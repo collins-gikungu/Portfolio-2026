@@ -70,7 +70,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="relative mx-auto mt-10 aspect-square max-w-sm rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-xl"
+              className="relative mx-auto mt-10 aspect-square max-w-sm rounded-full border border-white/10 bg-white/4 backdrop-blur-xl"
             >
               <div className="absolute inset-10 rounded-full border border-cyan-300/20" />
               <div className="absolute inset-20 rounded-full border border-violet-300/20" />
