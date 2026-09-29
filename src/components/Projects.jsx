@@ -77,16 +77,16 @@ const Projects = () => {
               transition={{ duration: 0.58, delay: index * 0.08 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
-              className="group relative min-h-[330px] overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/25 backdrop-blur-xl"
+              className="group relative min-h-82.5 overflow-hidden rounded-[30px] border border-white/10 bg-white/5.5 p-6 shadow-2xl shadow-black/25 backdrop-blur-xl"
             >
-              <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${project.accent}`} />
-              <div className={`absolute -right-20 -top-20 h-56 w-56 rounded-full bg-gradient-to-br ${project.accent} opacity-15 blur-3xl transition-opacity group-hover:opacity-25`} />
+              <div className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${project.accent}`} />
+              <div className={`absolute -right-20 -top-20 h-56 w-56 rounded-full bg-linear-to-br ${project.accent} opacity-15 blur-3xl transition-opacity group-hover:opacity-25`} />
 
               <div className="relative flex h-full flex-col">
                 <div className="mb-8 flex items-start justify-between gap-4">
                   <div>
                     <div className="mb-4 flex flex-wrap gap-2">
-                      <span className={`rounded-full bg-gradient-to-r ${project.accent} px-3 py-1 text-xs font-black uppercase tracking-wider text-slate-950`}>
+                      <span className={`rounded-full bg-linear-to-r ${project.accent} px-3 py-1 text-xs font-black uppercase tracking-wider text-slate-950`}>
                         {project.type}
                       </span>
                       <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-slate-300">
