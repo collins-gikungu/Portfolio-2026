@@ -1,4 +1,4 @@
-import { Code, Database, Settings, ShieldCheck } from 'lucide-react';
+import { ArrowDown, Code, Database, Settings, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionHeading from './SectionHeading';
 
@@ -53,11 +53,11 @@ const orbitItems = ['React', 'Node', 'Web3', 'SQL', 'APIs', 'UI'];
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative z-10 overflow-hidden bg-[#05070d]/88 px-4 py-24 text-white sm:px-6 lg:px-8">
+    <section id="skills" className="relative z-10 overflow-x-clip bg-[#05070d]/88 px-4 py-24 text-white sm:px-6 lg:px-8">
       <div className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.12),transparent_60%)]" />
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div>
+        <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div className="lg:sticky lg:top-28">
             <SectionHeading
               align="left"
               eyebrow="Capability Mesh"
@@ -102,9 +102,14 @@ const Skills = () => {
                 </div>
               </div>
             </motion.div>
+
+            <div className="mt-8 hidden items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-slate-400 lg:flex">
+              <ArrowDown className="h-4 w-4 animate-bounce text-cyan-200" />
+              Scroll through the stack
+            </div>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="relative flex flex-col gap-5 pb-6 lg:gap-16">
             {skillGroups.map(({ title, icon: Icon, accent, skills }, groupIndex) => (
               <motion.div
                 key={title}
@@ -112,8 +117,11 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: groupIndex * 0.08 }}
                 viewport={{ once: true }}
-                className="rounded-[28px] border border-white/10 bg-slate-950/50 p-6 shadow-xl shadow-black/25 backdrop-blur-xl"
+                className="relative rounded-[28px] border border-white/10 bg-slate-950/90 p-6 shadow-2xl shadow-black/35 backdrop-blur-xl lg:sticky lg:top-28 lg:min-h-[320px]"
+                style={{ zIndex: groupIndex + 1 }}
               >
+                <div className={`absolute inset-x-0 top-0 h-1 rounded-t-[28px] bg-gradient-to-r ${accent}`} />
+                <span className="absolute right-6 top-6 text-6xl font-black leading-none text-white/[0.035]">0{groupIndex + 1}</span>
                 <div className="mb-6 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <span className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${accent} text-slate-950`}>
@@ -121,7 +129,7 @@ const Skills = () => {
                     </span>
                     <h3 className="text-xl font-black text-white">{title}</h3>
                   </div>
-                  <span className="text-xs font-black uppercase tracking-wider text-slate-500">0{groupIndex + 1}</span>
+                  <span className="text-xs font-black uppercase tracking-wider text-slate-500">Layer 0{groupIndex + 1}</span>
                 </div>
 
                 <div className="space-y-5">

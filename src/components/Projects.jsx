@@ -1,4 +1,4 @@
-import { ArrowUpRight, CodeXml, ExternalLink, Layers3 } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, CodeXml, ExternalLink, Layers3 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionHeading from './SectionHeading';
 
@@ -58,7 +58,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative z-10 overflow-hidden bg-[#05070d]/94 px-4 py-24 text-white sm:px-6 lg:px-8">
+    <section id="projects" className="relative z-10 overflow-x-clip bg-[#05070d]/94 px-4 py-24 text-white sm:px-6 lg:px-8">
       <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
       <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
       <div className="mx-auto max-w-7xl">
@@ -68,7 +68,15 @@ const Projects = () => {
           copy="Each project has a different center of gravity: operations, trust, intelligence, or enterprise structure. The common thread is clear interaction design wrapped around useful logic."
         />
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="mb-8 flex items-center justify-between gap-4 border-y border-white/10 py-4 text-xs font-black uppercase tracking-[0.18em] text-slate-400">
+          <span>{projects.length} featured builds</span>
+          <span className="hidden items-center gap-2 text-cyan-200 sm:inline-flex">
+            <ArrowDown className="h-4 w-4 animate-bounce" />
+            Scroll to reveal
+          </span>
+        </div>
+
+        <div className="relative flex flex-col gap-6 pb-8 lg:gap-20">
           {projects.map((project, index) => (
             <motion.article
               key={project.title}
@@ -77,10 +85,12 @@ const Projects = () => {
               transition={{ duration: 0.58, delay: index * 0.08 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
-              className="group relative min-h-82.5 overflow-hidden rounded-[30px] border border-white/10 bg-white/5.5 p-6 shadow-2xl shadow-black/25 backdrop-blur-xl"
+              className="group relative min-h-82.5 overflow-hidden rounded-[30px] border border-white/10 bg-[#0b1020]/95 p-6 shadow-2xl shadow-black/35 backdrop-blur-xl sm:p-8 lg:sticky lg:top-28 lg:min-h-[430px]"
+              style={{ zIndex: index + 1 }}
             >
               <div className={`absolute inset-x-0 top-0 h-1 bg-linear-to-r ${project.accent}`} />
               <div className={`absolute -right-20 -top-20 h-56 w-56 rounded-full bg-linear-to-br ${project.accent} opacity-15 blur-3xl transition-opacity group-hover:opacity-25`} />
+              <span className="absolute bottom-5 right-7 text-7xl font-black leading-none text-white/[0.035] sm:text-8xl">0{index + 1}</span>
 
               <div className="relative flex h-full flex-col">
                 <div className="mb-8 flex items-start justify-between gap-4">
