@@ -117,14 +117,14 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: groupIndex * 0.08 }}
                 viewport={{ once: true }}
-                className="relative rounded-[28px] border border-white/10 bg-slate-950/90 p-6 shadow-2xl shadow-black/35 backdrop-blur-xl lg:sticky lg:top-28 lg:min-h-[320px]"
+                className="relative rounded-[28px] border border-white/10 bg-slate-950/90 p-6 shadow-2xl shadow-black/35 backdrop-blur-xl lg:sticky lg:top-28 lg:min-h-80"
                 style={{ zIndex: groupIndex + 1 }}
               >
-                <div className={`absolute inset-x-0 top-0 h-1 rounded-t-[28px] bg-gradient-to-r ${accent}`} />
+                <div className={`absolute inset-x-0 top-0 h-1 rounded-t-[28px] bg-linear-to-r ${accent}`} />
                 <span className="absolute right-6 top-6 text-6xl font-black leading-none text-white/[0.035]">0{groupIndex + 1}</span>
                 <div className="mb-6 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <span className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${accent} text-slate-950`}>
+                    <span className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br ${accent} text-slate-950`}>
                       <Icon className="h-5 w-5" />
                     </span>
                     <h3 className="text-xl font-black text-white">{title}</h3>
@@ -145,7 +145,7 @@ const Skills = () => {
                           whileInView={{ width: `${level}%` }}
                           transition={{ duration: 0.9, delay: index * 0.08 }}
                           viewport={{ once: true }}
-                          className={`h-full rounded-full bg-gradient-to-r ${accent}`}
+                          className={`h-full rounded-full bg-linear-to-r ${accent}`}
                         />
                       </div>
                     </div>

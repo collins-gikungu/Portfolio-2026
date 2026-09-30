@@ -67,8 +67,8 @@ const Hero = ({
       <Particles />
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(124,58,237,0.52),transparent_28%),radial-gradient(circle_at_88%_30%,rgba(20,184,166,0.28),transparent_24%),linear-gradient(135deg,rgba(2,6,23,0.5),rgba(0,0,0,0.95)_55%)]" />
-      <div className="absolute left-0 top-24 h-56 w-full -skew-y-12 bg-gradient-to-r from-violet-700/70 via-fuchsia-500/30 to-transparent blur-2xl" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:72px_72px] opacity-20" />
+      <div className="absolute left-0 top-24 h-56 w-full -skew-y-12 bg-linear-to-r from-violet-700/70 via-fuchsia-500/30 to-transparent blur-2xl" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[72px_72px] opacity-20" />
 
       <Header
         darkMode={darkMode}
@@ -93,7 +93,7 @@ const Hero = ({
 
           <h1 className="text-5xl font-black leading-[0.95] tracking-normal text-white sm:text-6xl lg:text-7xl">
             Hi, I'm{' '}
-            <span className="block bg-gradient-to-r from-white via-cyan-100 to-violet-200 bg-clip-text text-transparent sm:inline">
+            <span className="block bg-linear-to-r from-white via-cyan-100 to-violet-200 bg-clip-text text-transparent sm:inline">
               Collins.
             </span>
           </h1>
@@ -102,7 +102,7 @@ const Hero = ({
             Transforming ideas into reality
           </div>
 
-          <div className="mt-5 flex min-h-[44px] items-center gap-3 text-xl font-bold text-white sm:text-2xl">
+          <div className="mt-5 flex min-h-11 items-center gap-3 text-xl font-bold text-white sm:text-2xl">
             <Terminal className="h-6 w-6 text-amber-300" />
             <motion.span
               key={rotatingLines[lineIndex]}
@@ -113,7 +113,7 @@ const Hero = ({
               className="inline-flex items-center"
             >
               {rotatingLines[lineIndex]}
-              <span className="ml-1 h-7 w-[3px] animate-pulse bg-amber-300" />
+              <span className="ml-1 h-7 w-0.75 animate-pulse bg-amber-300" />
             </motion.span>
           </div>
 
@@ -194,7 +194,7 @@ const Hero = ({
                   alt="Collins Gikungu"
                   className="h-80 w-full object-cover object-center sm:h-96"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 to-transparent p-5">
+                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-slate-950/90 to-transparent p-5">
                   <div className="flex flex-wrap gap-2">
                     {techStack.map((tech, index) => (
                       <motion.span
@@ -229,7 +229,7 @@ const Hero = ({
                   whileHover={{ scale: 1.06, rotate: -2 }}
                   whileTap={{ scale: 0.94 }}
                   aria-label="Send email"
-                  className="inline-flex min-h-[72px] items-center justify-center rounded-2xl bg-violet-500 px-6 text-white shadow-lg shadow-violet-600/25 transition-colors hover:bg-violet-400"
+                  className="inline-flex min-h-18 items-center justify-center rounded-2xl bg-violet-500 px-6 text-white shadow-lg shadow-violet-600/25 transition-colors hover:bg-violet-400"
                 >
                   <Send className="h-6 w-6" />
                 </motion.a>

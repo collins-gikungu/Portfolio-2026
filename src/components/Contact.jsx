@@ -31,7 +31,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.58 }}
             viewport={{ once: true }}
-            className="rounded-[30px] border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/25 backdrop-blur-xl sm:p-8"
+            className="rounded-[30px] border border-white/10 bg-white/5.5 p-6 shadow-2xl shadow-black/25 backdrop-blur-xl sm:p-8"
           >
             <h3 className="text-2xl font-black text-white">Connection Points</h3>
             <p className="mt-4 leading-8 text-slate-300">
@@ -50,7 +50,7 @@ const Contact = () => {
                   </span>
                   <span className="min-w-0">
                     <span className="block text-sm font-black uppercase tracking-wider text-slate-500">{label}</span>
-                    <span className="block break-words font-bold text-slate-200">{value}</span>
+                    <span className="block wrap-break-word font-bold text-slate-200">{value}</span>
                   </span>
                 </a>
               ))}

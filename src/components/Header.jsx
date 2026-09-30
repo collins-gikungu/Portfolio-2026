@@ -44,7 +44,7 @@ const Header = ({
     >
       <div className="mx-auto max-w-7xl">
         <div className="relative rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-3 text-white shadow-2xl shadow-black/25 backdrop-blur-2xl sm:px-5">
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-300/10 via-violet-400/10 to-transparent" />
+          <div className="absolute inset-0 rounded-2xl bg-linear-to-r from-cyan-300/10 via-violet-400/10 to-transparent" />
 
           <div className="relative flex items-center justify-between gap-4">
             <button

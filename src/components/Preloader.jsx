@@ -23,7 +23,7 @@ const Preloader = () => {
         className="text-center"
       >
         <motion.h1
-          className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
+          className="text-4xl md:text-6xl font-bold bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
           animate={{
             textShadow: [
               '0 0 8px rgba(52, 211, 153, 0.5)',
@@ -36,7 +36,7 @@ const Preloader = () => {
           Welcome to My Portfolio
         </motion.h1>
         <motion.div
-          className="mt-8 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-auto w-64"
+          className="mt-8 h-1 bg-linear-to-r from-emerald-400 to-cyan-400 mx-auto w-64"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 2 }}

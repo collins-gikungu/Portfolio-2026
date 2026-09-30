@@ -22,7 +22,7 @@ const SectionHeading = ({ eyebrow, title, copy, align = 'center' }) => {
           {copy}
         </p>
       )}
-      <div className={`mt-6 h-[3px] w-28 rounded-full bg-gradient-to-r from-cyan-300 via-violet-300 to-fuchsia-300 ${isLeft ? '' : 'mx-auto'}`} />
+      <div className={`mt-6 h-0.75 w-28 rounded-full bg-linear-to-r from-cyan-300 via-violet-300 to-fuchsia-300 ${isLeft ? '' : 'mx-auto'}`} />
     </motion.div>
   );
 };
