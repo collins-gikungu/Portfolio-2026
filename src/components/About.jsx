@@ -21,7 +21,7 @@ const interests = [
 const About = () => {
   return (
     <section id="about" className="relative z-10 overflow-hidden bg-[#05070d]/92 px-4 py-24 text-white sm:px-6 lg:px-8">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-cyan-300/50 to-transparent" />
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Origin Story"
@@ -35,7 +35,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.06] p-6 shadow-2xl shadow-black/25 backdrop-blur-xl sm:p-8"
+            className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/6 p-6 shadow-2xl shadow-black/25 backdrop-blur-xl sm:p-8"
           >
             <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-cyan-300/15 blur-3xl" />
             <div className="absolute -bottom-16 left-8 h-40 w-40 rounded-full bg-violet-400/20 blur-3xl" />
@@ -86,7 +86,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55 }}
               viewport={{ once: true }}
-              className="rounded-[28px] border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl"
+              className="rounded-[28px] border border-white/10 bg-white/6 p-6 backdrop-blur-xl"
             >
               <div className="mb-5 flex items-center justify-between gap-4">
                 <h4 className="text-xl font-black text-white">Current Creative Gravity</h4>
