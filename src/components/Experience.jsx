@@ -30,7 +30,7 @@ const experience = [
 const Experience = () => {
   return (
     <section id="experience" className="relative z-10 overflow-hidden bg-[#05070d]/90 px-4 py-24 text-white sm:px-6 lg:px-8">
-      <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-violet-300/30 to-transparent" />
+      <div className="absolute inset-x-0 top-1/2 h-px bg-linear-to-r from-transparent via-violet-300/30 to-transparent" />
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Workline"
@@ -39,7 +39,7 @@ const Experience = () => {
         />
 
         <div className="relative mx-auto max-w-5xl">
-          <div className="absolute left-4 top-0 hidden h-full w-px bg-gradient-to-b from-cyan-300 via-violet-300 to-transparent md:block" />
+          <div className="absolute left-4 top-0 hidden h-full w-px bg-linear-to-b from-cyan-300 via-violet-300 to-transparent md:block" />
 
           <div className="space-y-8">
             {experience.map((exp, index) => (
@@ -55,7 +55,7 @@ const Experience = () => {
                   <Briefcase className="h-4 w-4" />
                 </div>
 
-                <div className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/25 backdrop-blur-xl sm:p-8">
+                <div className="overflow-hidden rounded-[30px] border border-white/10 bg-white/5.5 p-6 shadow-2xl shadow-black/25 backdrop-blur-xl sm:p-8">
                   <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                     <div>
                       <span className="mb-3 inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-cyan-100">
